@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerenciador de Receitas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Gerenciador de Receitas</h1>
+    <nav>
+      <button id="btn-buscar" data-target="#sec-buscar">Buscar</button>
+      <button id="btn-favoritos" data-target="#sec-favoritos">Favoritos</button>
+      <button id="btn-minhas" data-target="#sec-minhas-receitas">Minhas Receitas</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sec-buscar" class="sec-buscar">
+      <div class="cabecalho-busca">
+        <h2>Buscar receitas</h2>
+      </div>
+
+      <div class="barra-de-busca">
+        <input type="text" id="input-nome" placeholder="Buscar Refeição...">
+        <button id="btn-buscar-api">Buscar</button>
+      </div>
+
+      <div id="resultados" class="grid"></div>
+    </section>
+
+    <section id="sec-favoritos" class="sec-favoritos hidden">
+      <div class="cabecalho-favoritos">
+        <h2>Favoritos</h2>
+      </div>
+      <div id="lista-favoritos" class="grid"></div>
+    </section>
+
+    <section id="sec-minhas-receitas" class="sec-minhas-receitas hidden">
+      <div class="cabecalho-minhas-receitas">
+        <h2>Minhas receitas</h2>
+        <div class="acoes-minhas-receitas">
+          <button id="btn-nova-receita">Nova receita</button>
+        </div>
+      </div>
+
+      <div id="lista-minhas-receitas" class="grid"></div>
+    </section>
+  </main>
+
+  <div id="modal" class="hidden">
+    <div class="modal-content">
+      <h3 id="modal-titulo">Nova Receita</h3>
+      <form id="form-receita" class="form-receita">
+
+        <div class="grupo-campo">
+          <label for="titulo">Nome da receita</label>
+          <input id="titulo" name="titulo" placeholder="Ex: Bolo de Cenoura" required>
+        </div>
+
+        <div class="grupo-campo">
+          <label for="ingredientes">Ingredientes</label>
+          <textarea id="ingredientes" name="ingredientes" placeholder="Ex: 3 ovos, 2 xícaras de farinha..."
+            required></textarea>
+        </div>
+
+        <div class="grupo-campo">
+          <label for="instrucoes">Modo de preparo</label>
+          <textarea id="instrucoes" name="instrucoes" placeholder="Descreva o modo de preparo..." required></textarea>
+        </div>
+
+        <div class="acoes-form">
+          <button type="submit" class="btn-salvar">Salvar</button>
+          <button id="fechar-modal" type="button" class="btn-cancelar">Cancelar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
